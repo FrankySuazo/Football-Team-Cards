@@ -1,9 +1,12 @@
+//HTML imports 
 const teamName = document.getElementById("team");
 const typeOfSport = document.getElementById("sport");
 const worldCupYear = document.getElementById("year");
 const headCoach = document.getElementById("head-coach");
 const playerCards = document.getElementById("player-cards");
 const playersDropdownList = document.getElementById("players");
+
+//"data" of the football team cards. First mentioning the general team information
 const myFavoriteFootballTeam = {
   team: "Argentina",
   sport: "Football",
@@ -13,6 +16,8 @@ const myFavoriteFootballTeam = {
     coachName: "Carlos Bilardo",
     matches: 7,
   },
+
+  // The player's individual information for clasification/filter
   players: [
     {
       name: "Sergio Almirón",
@@ -171,15 +176,20 @@ const myFavoriteFootballTeam = {
   ],
 };
 
+//to 'lock' the information
 Object.freeze(myFavoriteFootballTeam);
+
+//Bringing the value from 'myFavoriteFootballTeam' as a variable for easier access
 const { sport, team, year, players } = myFavoriteFootballTeam;
 const { coachName } = myFavoriteFootballTeam.headCoach;
 
+//Brining the value for the user view instead of console
 typeOfSport.textContent = sport;
 teamName.textContent = team;
 worldCupYear.textContent = year;
 headCoach.textContent = coachName;
 
+//To sort the information for the users view
 const setPlayerCards = (arr = players) => {
   playerCards.innerHTML += arr
     .map(
@@ -196,6 +206,7 @@ const setPlayerCards = (arr = players) => {
     .join("");
 };
 
+//To filter/classify players by user selection
 playersDropdownList.addEventListener("change", (e) => {
   playerCards.innerHTML = "";
 
