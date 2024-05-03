@@ -238,4 +238,3 @@ playersDropdownList.addEventListener("change", (e) => {
   }
 });
 
-// div
